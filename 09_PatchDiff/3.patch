@@ -1,0 +1,32 @@
+--- maze.c	2023-11-24 16:39:14.960007393 +0300
++++ maze-3.c	2023-11-24 16:55:45.021469959 +0300
+@@ -1,6 +1,5 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+-#include <time.h>
+ 
+ void show(const char *maze, int width, int height, char pass, char wall) {
+ 	for (int y = 0; y < height; ++y) {
+@@ -56,7 +55,21 @@
+ 	char pass = '.', wall = '#';
+ 	char *maze;
+ 
+-	srand(time(0));
++	if(argc < 4) {
++		printf("Usage: %s <seed> <pass,wall> <size>\n", argv[0]);
++		return 1;
++	}
++
++	int seed = atoi(argv[1]); 
++	pass = argv[2][0];
++	wall = argv[2][1];
++	size = atoi(argv[3]);
++	if (size < 1) {
++		printf("Wrong maze size\n");
++		return 1;
++	}
++
++	srand(seed);
+ 
+ 	width = size * 2 + 1;
+ 	height = size * 2 + 1;

@@ -1,0 +1,20 @@
+--- maze.c	2023-11-24 16:39:14.960007393 +0300
++++ maze-1.c	2023-11-24 16:46:11.404538739 +0300
+@@ -56,6 +56,17 @@
+ 	char pass = '.', wall = '#';
+ 	char *maze;
+ 
++	if(argc < 2) {
++		printf("Usage: %s size\n", argv[0]);
++		return 1;
++	}
++
++	size = atoi(argv[1]);
++	if (size < 1) {
++		printf("Wrong maze size\n");
++		return 1;
++	}
++
+ 	srand(time(0));
+ 
+ 	width = size * 2 + 1;
