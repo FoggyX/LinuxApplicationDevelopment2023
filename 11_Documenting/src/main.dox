@@ -1,0 +1,12 @@
+/** @mainpage 
+ * Guess your number in decimal or Roman numeral systems
+ * @section Usage
+ * \b Usage: ./src/guesser [OPTION...]
+ *
+ * @param -r         use the Roman numeral system
+ * @param \--help     give this help list
+ * @param \--version  print program version
+ * 
+ * @section Source
+ * `src/guesser.c`
+ */
